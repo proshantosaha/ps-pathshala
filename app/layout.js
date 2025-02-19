@@ -1,5 +1,6 @@
 import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
+import { dbConnect } from "@/service/mongo";
 
 import { cn } from "@/lib/utils";
 
@@ -26,7 +27,11 @@ export const metadata = {
   description: "implement",
 };
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+  const conn = await dbConnect();
+
+  console.log(conn);
+
   return (
     <html lang="en">
       <body
