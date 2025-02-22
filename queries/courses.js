@@ -33,6 +33,8 @@ export async function getCourseList() {
       path: "modules",
       model: Module,
     })
+    .sort({ createdAt: -1 })
+    .limit(10)
     .lean();
   return replaceMongoIdInArray(courses);
 }
