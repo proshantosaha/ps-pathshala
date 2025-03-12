@@ -47,7 +47,7 @@ export const CourseDetailsIntro = ({ title, subtitle, thumbnail }) => {
                     width={768}
                     height={463}
                     src={`/assets/images/courses/${thumbnail}`}
-                    alt=""
+                    alt={thumbnail}
                   />
                 </div>
               </div>
