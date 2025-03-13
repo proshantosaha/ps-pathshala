@@ -32,7 +32,7 @@ const Testimonials = ({ testimonials }) => {
                   <blockquote className="rounded-lg bg-gray-50 p-6  sm:p-8 shadow-sm">
                     <div className="flex items-center gap-4">
                       <img
-                        alt=""
+                        alt="testmonial"
                         src={testimonial?.user?.profile_picture}
                         width="56"
                         height="56"

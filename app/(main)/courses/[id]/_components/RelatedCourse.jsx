@@ -81,7 +81,7 @@ const RelatedCourse = () => {
                     <div className="relative w-full aspect-video rounded-md overflow-hidden">
                       <Image
                         src="/assets/images/courses/course_1.png"
-                        alt={"course"}
+                        alt={course}
                         className="object-cover"
                         fill
                       />

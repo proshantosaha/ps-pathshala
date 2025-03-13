@@ -44,7 +44,9 @@ const CourseCurriculam = ({ course }) => {
         className="w-full"
       >
         {course?.modules &&
-          course?.modules.map((module) => <CourseModuleList module={module} />)}
+          course?.modules.map((module) => (
+            <CourseModuleList module={module} key={id} />
+          ))}
       </Accordion>
     </>
   );

@@ -42,7 +42,7 @@ const InstructorProfile = () => {
               <div className="w-36 h-36 rounded-full  mb-5 mx-auto overflow-hidden">
                 <img
                   src="https://avatars.githubusercontent.com/u/3633137?v=4"
-                  alt=""
+                  alt="title"
                   className="w-full h-full object-cover rounded"
                 />
               </div>
@@ -95,12 +95,12 @@ const InstructorProfile = () => {
                   <Link key={category.id} href={`/courses/${category.id}`}>
                     <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
                       <div className="relative w-full aspect-video rounded-md overflow-hidden">
-                        <Image
+                        {/* <Image
                           src="/assets/images/courses/course_1.png"
-                          alt={"course"}
+                          alt={course}
                           className="object-cover"
                           fill
-                        />
+                        /> */}
                       </div>
                       <div className="flex flex-col pt-2">
                         <div className="text-lg md:text-base font-medium group-hover:text-sky-700 line-clamp-2">
