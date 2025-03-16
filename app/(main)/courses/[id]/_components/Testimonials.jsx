@@ -1,5 +1,3 @@
-import { SectionTitle } from "@/components/section-title";
-import { StarRating } from "@/components/star-rating";
 import {
   Carousel,
   CarouselContent,
@@ -7,8 +5,9 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel";
+import { SectionTitle } from "@/components/section-title";
+import { StarRating } from "@/components/star-rating";
 import Image from "next/image";
-import React from "react";
 
 const Testimonials = ({ testimonials }) => {
   return (
@@ -33,7 +32,7 @@ const Testimonials = ({ testimonials }) => {
                   <blockquote className="rounded-lg bg-gray-50 p-6  sm:p-8 shadow-sm">
                     <div className="flex items-center gap-4">
                       <Image
-                        alt="testmonial"
+                        alt={testimonial?.user?.first_name}
                         src={testimonial?.user?.profile_picture}
                         width="56"
                         height="56"

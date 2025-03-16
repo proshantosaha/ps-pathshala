@@ -24,7 +24,7 @@ const SingleCoursePage = async ({ params: { id } }) => {
 
       {course?.testimonials && (
         <Testimonials
-          testimonials={replaceMongoIdInArray(course.testimonials)}
+          testimonials={replaceMongoIdInArray(course?.testimonials)}
         />
       )}
 

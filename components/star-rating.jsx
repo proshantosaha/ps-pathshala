@@ -6,13 +6,7 @@ export function StarRating({ rating }) {
   return (
     <>
       {stars.map((star, index) => (
-        <Image
-          key={index}
-          src={`/assets/star.svg`}
-          alt={"course"}
-          width={20}
-          height={20}
-        />
+        <Image key={index} src={`/assets/star.svg`} width={20} height={20} />
       ))}
     </>
   );
