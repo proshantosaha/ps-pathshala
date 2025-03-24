@@ -23,7 +23,7 @@ function Layout({ tabs }) {
                     type="file"
                     className="hidden"
                     onchange="loadFile(event)"
-                    alt={pro}
+                    alt=""
                   />
                   <div>
                     <div className="relative size-28 mx-auto">

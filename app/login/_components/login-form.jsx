@@ -31,7 +31,7 @@ export function LoginForm() {
       const response = await ceredntialLogin(formData);
 
       if (!!response.error) {
-        console.error(response.error)
+        // console.error(response.error)
         setError(response.error);
       } else {
         router.push("/courses");
