@@ -31,7 +31,7 @@ function Layout({ tabs }) {
                         src="/assets/images/profile.jpg"
                         className="rounded-full shadow dark:shadow-gray-800 ring-4 ring-slate-50 dark:ring-slate-800"
                         id="profile-banner"
-                        alt={profile}
+                        alt=""
                         width={112}
                         height={112}
                       />
