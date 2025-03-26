@@ -11,6 +11,9 @@ import { X } from "lucide-react";
 import { Command } from "lucide-react";
 import { Button, buttonVariants } from "./ui/button";
 import { Menu } from "lucide-react";
+
+import { redirect } from "next/navigation";
+
 import {
     DropdownMenu,
     DropdownMenuContent,
@@ -29,9 +32,11 @@ export function MainNav({ items, children }) {
     const [loginSession, setLoginSession] = useState(null);
 
     // console.log(loginSession);
+    if (session?.error === 'RefreshAccessTokenError') {
+        redirect("/login")
+    }
 
     useEffect(() => {
-        console.log("test");
         setLoginSession(session);
     }, [session]);
 

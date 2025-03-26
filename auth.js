@@ -1,8 +1,13 @@
 import NextAuth from "next-auth";
 import { authConfig } from "./auth.config";
 import CredentialsProvider from "next-auth/providers/credentials";
+import GoogleProvider from "next-auth/providers/google";
 import { User } from "./model/user-model";
 import bcrypt from "bcryptjs";
+
+
+
+
 
 export const {
   auth,
@@ -42,5 +47,16 @@ export const {
         }
       },
     }),
+    GoogleProvider({
+      clientId: process.env.GOOGLE_CLIENT_ID,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET,
+      authorization: {
+          params: {
+              prompt: "consent",
+              access_type: "offline",
+              response_type: "code",
+          },
+      },
+  }),
   ],
 });
