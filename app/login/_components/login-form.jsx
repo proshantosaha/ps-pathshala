@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import { ceredntialLogin } from "@/app/actions";
+import { credentialLogin } from "@/app/actions";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -28,7 +28,7 @@ export function LoginForm() {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const response = await ceredntialLogin(formData);
+      const response = await credentialLogin(formData);
 
       if (!!response.error) {
         // console.error(response.error)

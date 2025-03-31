@@ -14,11 +14,11 @@ import { toast } from "sonner";
 const PersonalDetails = ({userInfo}) => {
 
     const [infoState, setInfoState] = useState({
-        "firstName": userInfo?.firstName,
-        "lastName": userInfo?.lastName,
-        "email": userInfo?.email,
-        "designation": userInfo?.designation,
-        "bio": userInfo?.bio
+        "firstName": userInfo.firstName,
+        "lastName": userInfo.lastName,
+        "email": userInfo.email,
+        "designation": userInfo.designation,
+        "bio": userInfo.bio
     });
 
     const handleChange = (event) => {
@@ -90,7 +90,7 @@ const PersonalDetails = ({userInfo}) => {
         <div className="grid grid-cols-1">
           <div className="mt-5">
             <Label className="mb-2 block">Bio :</Label>
-            <Textarea id="bui" name="bio" value={infoState?.bio} placeholder="Enter your Bio" onChange={handleChange} />
+            <Textarea id="bio" name="bio" value={infoState?.bio} placeholder="Enter your Bio" onChange={handleChange} />
           </div>
         </div>
         {/*end row*/}
