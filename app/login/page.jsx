@@ -1,4 +1,5 @@
 import { LoginForm } from "./_components/login-form";
+
 import SocialLogins from "./_components/social-logins";
 
 const LoginPage = () => {
@@ -7,7 +8,6 @@ const LoginPage = () => {
       <div className="container">
         <LoginForm />
         <SocialLogins />
-
       </div>
     </div>
   );

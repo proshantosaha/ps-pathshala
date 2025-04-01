@@ -13,7 +13,7 @@ import {
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 
-import { credentialLogin } from "@/app/actions";
+import { ceredntialLogin } from "@/app/actions";
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
@@ -28,10 +28,10 @@ export function LoginForm() {
 
     try {
       const formData = new FormData(event.currentTarget);
-      const response = await credentialLogin(formData);
+      const response = await ceredntialLogin(formData);
 
       if (!!response.error) {
-        // console.error(response.error)
+        console.error(response.error)
         setError(response.error);
       } else {
         router.push("/courses");

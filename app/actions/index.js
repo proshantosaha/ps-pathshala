@@ -1,8 +1,8 @@
-"use server";
+"use server"
 
 import { signIn } from "@/auth";
 
-export async function credentialLogin (formData) {
+export async function ceredntialLogin(formData) {
     try {
        const response = await signIn("credentials", {
             email: formData.get("email"),
@@ -11,13 +11,9 @@ export async function credentialLogin (formData) {
         })
         return response;
     } catch(error) {
-        console.error("Login error:", error);
-
-        throw new Error(error);
+        throw Error
     }
 }
-
-
 
 export async function doSocialLogin(formData) {
     const action = formData.get("action");

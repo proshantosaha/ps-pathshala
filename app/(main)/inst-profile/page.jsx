@@ -1,4 +1,4 @@
-import { CourseProgress } from "@/components/course-progress";
+//import { CourseProgress } from "@/components/course-progress";
 import { SectionTitle } from "@/components/section-title";
 import { Button } from "@/components/ui/button";
 import { formatPrice } from "@/lib/formatPrice";
@@ -40,9 +40,9 @@ const InstructorProfile = () => {
           <div className="bg-white rounded-2xl p-6 shadow">
             <div className="mb-6">
               <div className="w-36 h-36 rounded-full  mb-5 mx-auto overflow-hidden">
-                <Image
+                <img
                   src="https://avatars.githubusercontent.com/u/3633137?v=4"
-                  alt={title}
+                  alt=""
                   className="w-full h-full object-cover rounded"
                 />
               </div>
@@ -95,12 +95,12 @@ const InstructorProfile = () => {
                   <Link key={category.id} href={`/courses/${category.id}`}>
                     <div className="group hover:shadow-sm transition overflow-hidden border rounded-lg p-3 h-full">
                       <div className="relative w-full aspect-video rounded-md overflow-hidden">
-                        {/* <Image
+                        <Image
                           src="/assets/images/courses/course_1.png"
-                          alt={course}
+                          alt={"course"}
                           className="object-cover"
                           fill
-                        /> */}
+                        />
                       </div>
                       <div className="flex flex-col pt-2">
                         <div className="text-lg md:text-base font-medium group-hover:text-sky-700 line-clamp-2">
@@ -118,11 +118,11 @@ const InstructorProfile = () => {
                           </div>
                         </div>
 
-                        <CourseProgress
+                        {/*<CourseProgress
                           size="sm"
                           value={80}
                           variant={110 === 100 ? "success" : ""}
-                        />
+                />*/}
 
                         <div className="flex items-center justify-between mt-4">
                           <p className="text-md md:text-sm font-medium text-slate-700">

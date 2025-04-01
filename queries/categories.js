@@ -6,14 +6,12 @@ export async function getCategories() {
     return replaceMongoIdInArray(categories);
 }
 
-
 export async function getCategoryDetails(categoryId) {
     try {
         const category = await Category.findById(categoryId).lean();
         return replaceMongoIdInObject(category);
     } catch (error) {
-        console.error('Error occurred while fetching category:', error);
-        throw new Error(error instanceof Error ? error.message : String(error));
+        throw new Error(error);
     }
 
 }

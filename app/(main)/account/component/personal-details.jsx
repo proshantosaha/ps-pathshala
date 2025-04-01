@@ -14,11 +14,11 @@ import { toast } from "sonner";
 const PersonalDetails = ({userInfo}) => {
 
     const [infoState, setInfoState] = useState({
-        "firstName": userInfo.firstName,
-        "lastName": userInfo.lastName,
-        "email": userInfo.email,
-        "designation": userInfo.designation,
-        "bio": userInfo.bio
+        "firstName":userInfo ? userInfo.firstName: '',
+        "lastName":userInfo ? userInfo.lastName: '',
+        "email":userInfo ? userInfo.email: '',
+        "designation":userInfo ? userInfo.designation: '',
+        "bio":userInfo ? userInfo.bio: ''
     });
 
     const handleChange = (event) => {
