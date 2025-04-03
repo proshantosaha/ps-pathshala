@@ -8,6 +8,10 @@ import { getAReport } from "@/queries/reports";
 
 const EnrolledCourseCard = async ({enrollment}) => {
 
+
+    console.log(enrollment);
+    
+
     const courseCategory = await getCategoryDetails(enrollment?.course?.category?._id);
 
     const filter = {course: enrollment?.course?._id, student: enrollment?.student?._id};
@@ -38,9 +42,12 @@ const EnrolledCourseCard = async ({enrollment}) => {
         })
       }).filter(elem => elem.length > 0).flat();
 
-    //console.log({totalCorrect});
+    // console.log({totalCorrect});
 
     const marksFromQuizzes = totalCorrect?.length * 5;
+
+    // console.log(marksFromQuizzes);
+    
 
     const otherMarks = report?.quizAssessment?.otherMarks;
 
