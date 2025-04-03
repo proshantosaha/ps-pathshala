@@ -7,8 +7,8 @@ const inter = Inter({ subsets: ["latin"] });
 const poppins = Inter({ subsets: ["latin"], variable: "--font-poppins" });
 
 export const metadata = {
-  title: "EduConnect - Wold's Best Learning Platform",
-  description: "Explore || Learn || Build || Share",
+  title: "Pathshala - its a Learning Platform",
+  description: "learning your best away",
 };
 
 export default async function RootLayout({ children }) {

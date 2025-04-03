@@ -6,8 +6,10 @@ import CourseDetails from "./_components/CourseDetails";
 import { getCourseDetails } from "@/queries/courses";
 import { replaceMongoIdInArray } from "@/lib/convertData";
 
-const SingleCoursePage = async ({params: {id}}) => {
-    const course = await getCourseDetails(id);
+const SingleCoursePage = async ({params}) => {
+    const { id } = await params; // Make sure to await params before destructuring
+  
+  const course = await getCourseDetails(id);
     return (
         <>
             <CourseDetailsIntro course={course} />
