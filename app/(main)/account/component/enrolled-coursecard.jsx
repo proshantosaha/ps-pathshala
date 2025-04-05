@@ -8,46 +8,37 @@ import { getAReport } from "@/queries/reports";
 
 const EnrolledCourseCard = async ({enrollment}) => {
 
-
-    console.log(enrollment);
-    
-
     const courseCategory = await getCategoryDetails(enrollment?.course?.category?._id);
 
     const filter = {course: enrollment?.course?._id, student: enrollment?.student?._id};
 
     const report = await getAReport(filter);
 
-    console.log(report);
+    //console.log(report);
 
     // Total Completed Modules
     const totalCompletedModules = report?.totalCompletedModeules?.length;
-    // console.log(totalCompletedModules);
-    
 
     // Get all Quizzes and Assignments
     const quizzes = report?.quizAssessment?.assessments;
     const totalQuizzes = quizzes?.length;
 
     // Find attempted quizzes
-    const quizzesTaken = quizzes?.filter(q => q.attempted);
-    // console.log(quizzesTaken);
+    const quizzesTaken = quizzes.filter(q => q.attempted);
+    console.log(quizzesTaken);
 
     // Find how many quizzes answered correct
 
-    const totalCorrect = quizzesTaken?.map(quiz => {
+    const totalCorrect = quizzesTaken.map(quiz => {
         const item = quiz.options
         return item.filter(o => {
             return o.isCorrect === true && o.isSelected === true
         })
       }).filter(elem => elem.length > 0).flat();
 
-    // console.log({totalCorrect});
+    //console.log({totalCorrect});
 
     const marksFromQuizzes = totalCorrect?.length * 5;
-
-    // console.log(marksFromQuizzes);
-    
 
     const otherMarks = report?.quizAssessment?.otherMarks;
 
