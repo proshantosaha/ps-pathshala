@@ -49,8 +49,8 @@ export async function getCourseDetails(id) {
     return replaceMongoIdInObject(course)
 }
 
-export async function getCourseDetailsByInstructor(instructorId,expand) {
-    const publishedCourses = await Course.find({instructor: instructorId,active:true}).lean();
+export async function getCourseDetailsByInstructor(instructorId, expand) {
+    const publishedCourses = await Course.find({instructor: instructorId, active:true}).lean();
 
     const enrollments = await Promise.all(
         publishedCourses.map(async (course) => {
@@ -62,8 +62,8 @@ export async function getCourseDetailsByInstructor(instructorId,expand) {
     const groupedByCourses = Object.groupBy(enrollments.flat(), ({ course }) => course);
 
     const totalRevenue = publishedCourses.reduce((acc, course) => {
-      const numEnrollments = groupedByCourses[course._id]?.length || 0; // Default to 0 if undefined
-      return acc + (numEnrollments * course.price);
+        const quantity = groupedByCourses[course._id] ? groupedByCourses[course._id].length : 0;
+        return (acc + quantity * course.price)
     }, 0);
 
     const totalEnrollments = enrollments.reduce(function (acc, obj) {
@@ -83,18 +83,14 @@ export async function getCourseDetailsByInstructor(instructorId,expand) {
         }, 0)) / totalTestimonials.length;
 
     //console.log("testimonials", totalTestimonials, avgRating);
-
-
     if (expand) {
         const allCourses = await Course.find({instructor: instructorId}).lean();
-
         return {
             "courses": allCourses?.flat(),
             "enrollments": enrollments?.flat(),
             "reviews": totalTestimonials,
         }
     }
-
     return {
         "courses": publishedCourses.length,
         "enrollments": totalEnrollments,
@@ -103,8 +99,6 @@ export async function getCourseDetailsByInstructor(instructorId,expand) {
         "revenue": totalRevenue
     }
 }
-
-
 
 export async function create(courseData) {
     try{
