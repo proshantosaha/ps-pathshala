@@ -15,7 +15,10 @@ import { CourseActions } from "../../_components/course-action";
 import { getModule } from "@/queries/modules";
 import { replaceMongoIdInArray } from "@/lib/convertData";
 
-const Module = async ({ params: {courseId, moduleId} }) => {
+const Module = async ({ params }) => {
+
+  const { courseId, moduleId } = params;  // Destructure params here
+
   const module = await getModule(moduleId);
   console.log(module);
 
