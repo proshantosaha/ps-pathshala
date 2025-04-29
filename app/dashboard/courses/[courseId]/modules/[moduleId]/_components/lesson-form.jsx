@@ -21,18 +21,32 @@ import { toast } from "sonner";
 import { LessonList } from "./lesson-list";
 import { LessonModal } from "./lesson-modal";
 import { getSlug } from "@/lib/convertData";
-import { createLesson, reOrderLesson } from "@/app/actions/lesson";
+
+import { createLesson } from "@/app/actions/lesson";
+import { reOrderLesson } from "@/app/actions/lesson";
 
 const formSchema = z.object({
   title: z.string().min(1),
 });
-
-export const LessonForm = ({ initialData, moduleId,courseId}) => {
+const initialLessons = [
+  {
+    id: "1",
+    title: "Module 1",
+    active: true,
+  },
+  {
+    id: "2",
+    title: "Module 2",
+  },
+];
+export const LessonForm = ({ initialData, moduleId, courseId }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [lessons, setLessons] = useState(initialData);
   const router = useRouter();
   const [isCreating, setIsCreating] = useState(false);
   const [isUpdating, setIsUpdating] = useState(false);
+
+  const [lessonToEdit, setLessonToEdit] = useState(null);
 
   const toggleCreating = () => setIsCreating((current) => !current);
   const toggleEditing = () => setIsEditing((current) => !current);
@@ -47,8 +61,8 @@ export const LessonForm = ({ initialData, moduleId,courseId}) => {
   const { isSubmitting, isValid } = form.formState;
 
   const onSubmit = async (values) => {
+    console.log(values);
     try {
-
       const formData = new FormData();
 
       formData.append("title", values.title);
@@ -57,6 +71,7 @@ export const LessonForm = ({ initialData, moduleId,courseId}) => {
       formData.append("order", lessons.length);
 
       const lesson = await createLesson(formData);
+
       setLessons((lessons) => [
         ...lessons,
         {
@@ -87,6 +102,8 @@ export const LessonForm = ({ initialData, moduleId,courseId}) => {
   };
 
   const onEdit = (id) => {
+    const foundLesson = lessons.find(lesson => lesson.id === id);
+    setLessonToEdit(foundLesson);
     setIsEditing(true);
   };
 
@@ -159,7 +176,7 @@ export const LessonForm = ({ initialData, moduleId,courseId}) => {
           Drag & Drop to reorder the lessons
         </p>
       )}
-      <LessonModal open={isEditing} setOpen={setIsEditing} courseId={courseId}/>
+      <LessonModal open={isEditing} setOpen={setIsEditing} courseId={courseId} lesson={lessonToEdit} />
     </div>
   );
 };
