@@ -4,18 +4,14 @@
   "rsc": true,
   "tsx": false,
   "tailwind": {
-    "config": "tailwind.config.mjs",
+    "config": "tailwind.config.js",
     "css": "app/globals.css",
-    "baseColor": "stone",
+    "baseColor": "gray",
     "cssVariables": true,
     "prefix": ""
   },
   "aliases": {
     "components": "@/components",
-    "utils": "@/lib/utils",
-    "ui": "@/components/ui",
-    "lib": "@/lib",
-    "hooks": "@/hooks"
-  },
-  "iconLibrary": "lucide"
+    "utils": "@/lib/utils"
+  }
 }

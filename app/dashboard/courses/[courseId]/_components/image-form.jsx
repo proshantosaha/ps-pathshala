@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState, useEffect } from "react";
 
 // import axios from "axios";
 import { ImageIcon, Pencil, PlusCircle } from "lucide-react";
@@ -19,24 +19,9 @@ const formSchema = z.object({
 });
 
 export const ImageForm = ({ initialData, courseId }) => {
+  const [file, setFile] = useState(null);
   const router = useRouter();
   const [isEditing, setIsEditing] = useState(false);
-  const [file, setFile] = useState(null);
-
-  const toggleEdit = () => setIsEditing((current) => !current);
-
-  const onSubmit = async (values) => {
-    try {
-      toast.success("Course updated");
-      toggleEdit();
-      router.refresh();
-    } catch (error) {
-      toast.error("Something went wrong");
-    }
-  };
-
-
-
 
   useEffect(() => {
     if (file) {
@@ -67,8 +52,17 @@ export const ImageForm = ({ initialData, courseId }) => {
     }
   }, [file]);
 
+  const toggleEdit = () => setIsEditing((current) => !current);
 
-
+  const onSubmit = async (values) => {
+    try {
+      toast.success("Course updated");
+      toggleEdit();
+      router.refresh();
+    } catch (error) {
+      toast.error("Something went wrong");
+    }
+  };
 
   return (
     <div className="mt-6 border bg-gray-50 rounded-md p-4">
@@ -107,7 +101,7 @@ export const ImageForm = ({ initialData, courseId }) => {
         ))}
       {isEditing && (
         <div>
-          <UploadDropzone onUpload={(file)=>setFile(file)}/>
+          <UploadDropzone onUpload={(file) => setFile(file)}/>
           <div className="text-xs text-muted-foreground mt-4">
             16:9 aspect ratio recommended
           </div>

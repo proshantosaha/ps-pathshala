@@ -11,7 +11,7 @@ export async function ceredntialLogin(formData) {
         })
         return response;
     } catch(error) {
-        throw Error
+        throw new Error(error);
     }
 }
 

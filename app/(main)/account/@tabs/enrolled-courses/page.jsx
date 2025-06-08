@@ -26,7 +26,7 @@ async function EnrolledCourses() {
         <div className="grid sm:grid-cols-2 gap-6">
             {enrollments && enrollments.length > 0 ? (
                 <>
-                    {enrollments?.map((enrollment) => (
+                    {enrollments.map((enrollment) => (
                         <EnrolledCourseCard
                             key={enrollment?.id}
                             enrollment={enrollment}

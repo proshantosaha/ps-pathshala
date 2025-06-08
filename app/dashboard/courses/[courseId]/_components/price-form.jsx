@@ -42,7 +42,7 @@ export const PriceForm = ({ initialData, courseId }) => {
 
   const onSubmit = async (values) => {
     try {
-      await updateCourse(courseId,values)
+      await updateCourse(courseId, values);
       toast.success("Course updated");
       toggleEdit();
       router.refresh();

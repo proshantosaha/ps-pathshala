@@ -19,10 +19,9 @@ import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { toast } from "sonner";
 import { updateCourse } from "@/app/actions/course";
-import { Category } from "@/model/category-model";
 
 const formSchema = z.object({
-  categoryId: z.string().min(1),
+  value: z.string().min(1),
 });
 
 export const CategoryForm = ({
@@ -46,8 +45,9 @@ export const CategoryForm = ({
 
   const onSubmit = async (values) => {
     try {
-      const selectedCategory = options.find(option=>option.value=== values.value)
-      await updateCourse(courseId,{"category":selectedCategory.id})
+      console.log(values);
+      const selectedCategory = options.find(option => option.value === values.value);
+      await updateCourse(courseId, {"category": selectedCategory.id})
       toast.success("Course updated");
       toggleEdit();
       router.refresh();

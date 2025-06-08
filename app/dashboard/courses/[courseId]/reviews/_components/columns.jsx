@@ -1,6 +1,5 @@
 "use client";
 
-import { StarRating } from "@/components/star-rating";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,6 +12,8 @@ import { cn } from "@/lib/utils";
 import { GraduationCap } from "lucide-react";
 import { ArrowUpDown, MoreHorizontal, Pencil } from "lucide-react";
 import Link from "next/link";
+
+import { StarRating } from "@/components/star-rating";
 
 export const columns = [
   {

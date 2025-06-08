@@ -16,7 +16,7 @@ export async function getModule(moduleId) {
         const module = await Module.findById(moduleId).
         populate({
             path: "lessonIds",
-            model: Lesson    
+            model: Lesson
         }).
         lean();
         return replaceMongoIdInObject(module);

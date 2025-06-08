@@ -14,36 +14,34 @@ import { TitleForm } from "./_components/title-form";
 import { CourseActions } from "./_components/course-action";
 import AlertBanner from "@/components/alert-banner";
 import { QuizSetForm } from "./_components/quiz-set-form";
-import { getCourseDetails } from "@/queries/courses";
+
 import { getCategories } from "@/queries/categories";
+import { getCourseDetails } from "@/queries/courses";
+
 import { replaceMongoIdInArray } from "@/lib/convertData";
 
-const EditCourse = async({params:{courseId}}) => {
- const course = await getCourseDetails(courseId)
- const categories = await getCategories()
+const EditCourse = async ({params: {courseId}}) => {
+  const course = await getCourseDetails(courseId);
+  const categories = await getCategories();
+  const mappedCategories = categories.map(c => {
+    return {
+      value: c.title,
+      label: c.title,
+      id: c.id,
+    }
+  });
 
- const mappedCategories = categories.map(c => {
-  return {
-    value: c.title,
-    label: c.title,
-    id: c.id,
-  }
-});
+  const modules = replaceMongoIdInArray(course?.modules).sort((a,b) => a.order - b.order);
 
-
-const modules = replaceMongoIdInArray(course?.modules).sort((a,b) => a.order - b.order);
-
-//  console.log(categories);
- 
   return (
     <>
-      <AlertBanner
+      {!course.active && <AlertBanner
         label="This course is unpublished. It will not be visible in the course."
         variant="warning"
-      />
+      />}
       <div className="p-6">
         <div className="flex items-center justify-end">
-          <CourseActions />
+          <CourseActions courseId={courseId} isActive={course?.active}/>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-16">
           <div>
@@ -57,9 +55,9 @@ const modules = replaceMongoIdInArray(course?.modules).sort((a,b) => a.order - b
               }}
               courseId={courseId}
             />
-            <DescriptionForm initialData={{description:course?.description}} courseId={courseId} />
-            <ImageForm initialData={{imageUrl:`/assets/images/courses/${course?.thumbnail}`}} courseId={courseId} />
-            <CategoryForm initialData={{value:course?.category?.title}} courseId={courseId} options={mappedCategories}/>
+            <DescriptionForm initialData={{description: course?.description}} courseId={courseId} />
+            <ImageForm initialData={{imageUrl: `/assets/images/courses/${course.thumbnail}`}} courseId={courseId} />
+            <CategoryForm initialData={{value: course?.category?.title}} courseId={courseId} options={mappedCategories} />
 
             <QuizSetForm initialData={{}} courseId={courseId} />
           </div>
@@ -77,7 +75,7 @@ const modules = replaceMongoIdInArray(course?.modules).sort((a,b) => a.order - b
                 <IconBadge icon={CircleDollarSign} />
                 <h2 className="text-xl">Sell you course</h2>
               </div>
-              <PriceForm initialData={{price:course?.price}} courseId={courseId} />
+              <PriceForm initialData={{price: course?.price}} courseId={courseId} />
             </div>
           </div>
         </div>
