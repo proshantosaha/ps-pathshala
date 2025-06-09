@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-assign-module-variable */
 "use server"
 
 import { create } from "@/queries/modules";
@@ -70,7 +71,7 @@ export async function changeModulePublishState(moduleId) {
     console.log("delete", moduleId, courseId);
     try {
       const course = await Course.findById(courseId);
-      course.modules.pull(new mongoose.Types.ObjectId(moduleId));
+    course.modules.pull(moduleId);
       course.save();
       await Module.findByIdAndDelete(moduleId);
     } catch (err) {

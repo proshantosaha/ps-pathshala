@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-assign-module-variable */
 import AlertBanner from "@/components/alert-banner";
 import { IconBadge } from "@/components/icon-badge";
 import {

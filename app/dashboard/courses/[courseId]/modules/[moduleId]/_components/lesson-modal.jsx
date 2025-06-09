@@ -27,7 +27,7 @@ export const LessonModal = ({ open, setOpen, courseId, moduleId, lesson, onclose
     <Dialog open={open} onOpenChange={setOpen}>
       {/* <DialogTrigger>Open</DialogTrigger> */}
       <DialogContent
-        className="sm:max-w-[1200px] w-[96%] overflow-y-auto max-h-[90vh]"
+        className="sm:max-w-[1200px] w-[80%] overflow-y-auto max-h-[90vh]"
         onInteractOutside={(e) => {
           e.preventDefault();
         }}

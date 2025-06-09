@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-assign-module-variable */
 "use server"
 
 import { Lesson } from "@/model/lesson.model";
