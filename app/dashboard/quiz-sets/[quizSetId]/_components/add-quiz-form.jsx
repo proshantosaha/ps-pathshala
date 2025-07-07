@@ -22,6 +22,7 @@ import { useRouter } from "next/navigation";
 import { PlusCircle } from "lucide-react";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Textarea } from "@/components/ui/textarea";
+import { addQuizToQuizSet } from "@/app/actions/quiz";
 
 const formSchema = z.object({
   title: z
@@ -113,7 +114,6 @@ export const AddQuizForm = ({ quizSetId }) => {
 
   const onSubmit = async (values) => {
     try {
-      console.log({ values });
 
       const correctness = [values.optionA.isTrue, values.optionB.isTrue, values.optionC.isTrue, values.optionD.isTrue];
 
@@ -146,11 +146,10 @@ export const AddQuizForm = ({ quizSetId }) => {
           },
         });
 
-        //toggleEdit();
         router.refresh();
 
       } else {
-        toast.error("You must mark only one correct answer.")
+        toast.error("mark only one correct answer.")
       }
     } catch (error) {
       toast.error("Something went wrong");

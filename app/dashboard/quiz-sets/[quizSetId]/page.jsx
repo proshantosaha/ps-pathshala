@@ -15,12 +15,54 @@ import { Circle } from "lucide-react";
 import { QuizCardActions } from "./_components/quiz-card-actions";
 import { getQuizSetById } from "@/queries/quizzes";
 
-
-
+const initialQuizes = [
+  {
+    id: 1,
+    title: "What is HTML ?",
+    options: [
+      {
+        label: "A programming language",
+        isTrue: false,
+      },
+      {
+        label: "A markup language",
+        isTrue: true,
+      },
+      {
+        label: "A famous book",
+        isTrue: false,
+      },
+      {
+        label: "A famous tv show",
+        isTrue: false,
+      },
+    ],
+  },
+  {
+    id: 2,
+    title: "What is Javascript ?",
+    options: [
+      {
+        label: "A programming language",
+        isTrue: true,
+      },
+      {
+        label: "A markup language",
+        isTrue: false,
+      },
+      {
+        label: "A famous book",
+        isTrue: false,
+      },
+      {
+        label: "A famous tv show",
+        isTrue: false,
+      },
+    ],
+  },
+];
 const EditQuizSet = async ({params: {quizSetId}}) => {
   const quizSet = await getQuizSetById(quizSetId);
-
-
   const quizzes = quizSet.quizIds.map(quiz => {
     return {
       id: quiz._id.toString(),
@@ -33,6 +75,7 @@ const EditQuizSet = async ({params: {quizSetId}}) => {
       })
     }
   })
+  console.log(quizSet);
 
   return (
     <>
@@ -48,13 +91,13 @@ const EditQuizSet = async ({params: {quizSetId}}) => {
           {/* Quiz List */}
           <div className="max-lg:order-2">
             <h2 className="text-xl mb-6">Quiz List</h2>
-            {quizzes?.length === 0 && (<AlertBanner
+            {quizzes.length === 0 && (<AlertBanner
               label="No Quiz are in the set, add some using the form above."
               variant="warning"
               className="rounded mb-6"
             />)}
             <div className="space-y-6">
-              {quizzes?.map((quiz) => {
+              {quizzes.map((quiz) => {
                 return (
                   <div
                     key={quiz.id}
@@ -63,7 +106,7 @@ const EditQuizSet = async ({params: {quizSetId}}) => {
                     <h2 className="mb-3">{quiz.title}</h2>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {quiz.options?.map((option) => {
+                      {quiz.options.map((option) => {
                         return (
                           <div
                             className={cn(
