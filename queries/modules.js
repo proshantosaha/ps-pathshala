@@ -4,6 +4,7 @@ import { Lesson } from "@/model/lesson.model";
 
 export async function create(moduleData) {
     try {
+        // eslint-disable-next-line @next/next/no-assign-module-variable
         const module = await Module.create(moduleData);
         return JSON.parse(JSON.stringify(module));
     } catch (e) {
@@ -13,6 +14,7 @@ export async function create(moduleData) {
 
 export async function getModule(moduleId) {
     try {
+        // eslint-disable-next-line @next/next/no-assign-module-variable
         const module = await Module.findById(moduleId).
         populate({
             path: "lessonIds",
@@ -22,5 +24,15 @@ export async function getModule(moduleId) {
         return replaceMongoIdInObject(module);
     } catch (e) {
         throw new Error(e)
+    }
+}
+
+export async function getModuleBySlug(moduleSlug) {
+    try {
+        // eslint-disable-next-line @next/next/no-assign-module-variable
+        const module = await Module.findOne({slug: moduleSlug}).lean();
+        return replaceMongoIdInObject(module);
+    } catch(err) {
+        throw new Error(err);
     }
 }
