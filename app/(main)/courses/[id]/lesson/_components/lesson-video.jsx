@@ -94,8 +94,8 @@ export const LessonVideo = ({ courseId, lesson, module }) => {
         {
             hasWindow && (
                 <ReactPlayer
-                    // url={lesson.video_url}
-                    src="https://youtu.be/rCt9DatF63I?si=wtQRUquYjNAMHqG1"
+                    url={lesson.video_url}
+                    // src="https://youtu.be/rCt9DatF63I?si=wtQRUquYjNAMHqG1"
 
                     width="100%"
                     height="470px"
