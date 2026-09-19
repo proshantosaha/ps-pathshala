@@ -1,9 +1,5 @@
-<<<<<<< HEAD
 @import "tailwindcss";
 @import "tw-animate-css";
-
-@import "react-quill/dist/quill.snow.css";
-@import "react-quill/dist/quill.bubble.css";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -85,11 +81,6 @@
 /* --------------------------------
    Light & Dark Theme Variables
 -------------------------------- */
-=======
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
 
 @layer base {
   :root {
@@ -119,10 +110,7 @@
 
     --success: 160 100% 43%;
     --success-foreground: 210 20% 98%;
-<<<<<<< HEAD
 
-=======
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
     --border: 220 13% 91%;
     --input: 220 13% 91%;
     --ring: 224 71.4% 4.1%;
@@ -150,11 +138,7 @@
     --muted-foreground: 217.9 10.6% 64.9%;
 
     --accent: 215 27.9% 16.9%;
-<<<<<<< HEAD
     --accent-foreground: 220.9 39.3% 11%;
-=======
-    --accent-foreground: 210 20% 98%;
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
 
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 210 20% 98%;
@@ -164,38 +148,26 @@
 
     --border: 215 27.9% 16.9%;
     --input: 215 27.9% 16.9%;
-<<<<<<< HEAD
 
-=======
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
     --ring: 216 12.2% 83.9%;
   }
 }
 
-<<<<<<< HEAD
 /* --------------------------------
    Global Base Styles
 -------------------------------- */
 
-=======
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
 @layer base {
   html,
   body,
   :root {
     @apply h-full;
   }
-<<<<<<< HEAD
 
   * {
     @apply border-border;
   }
 
-=======
-  * {
-    @apply border-border;
-  }
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
   body {
     @apply bg-background text-foreground text-xs sm:text-sm lg:text-base font-inter;
   }
@@ -210,19 +182,12 @@
   }
 }
 
-<<<<<<< HEAD
 /* --------------------------------
    Custom Components
 -------------------------------- */
 
-=======
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
 @layer components {
   .grainy {
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwBAMAAAClLOS0AAAAElBMVEUAAAD8/vz08vT09vT8+vzs7uxH16TeAAAAAXRSTlMAQObYZgAAAAlwSFlzAAAOxAAADsQBlSsOGwAAAuFJREFUOI0Vk+3NLiEIRG1B8ClAYAsQ2AIEt4D9ePtv5Xp/mZgYJ2fOFJKEfInkVWY2aglmQFkimRTV7MblYyVqD7HXyhKsSuPX12MeDhRHLtGvRG+P+B/S0Vu4OswR9tmvwNPyhdCDbVayJGads/WiUWcjCvCnruTBNHS9gmX2VzVbk7ZvB1gb1hkWFGl+A/n+/FowcO34U/XvKqZ/fHY+6vgRfU92XrOBUbGeeDfQmjWjdrK+frc6FdGReQhfSF5JvR29O2QrfNw1huTwlgsyXLo0u+5So82sgv7tsFZR2nxB6lXiquHrfD8nfYZ9SeT0LiuvSoVrxGY16pCNRZKqvwWsn5OHypPBELzohMCaRaa0ceTHYqe7X/gfJEEtKFbJpWoNqO+aS1cuTykGPpK5Ga48m6L3NefTr013KqYBQu929iP1oQ/7UwSR+i3zqruUmT84qmhzLpxyj7pr9kg7LKvqaXxZmdpn+6o8sHqSqojy02gU3U8q9PnpidiaLks0mbMYz+q2uVXsoBQ8bfURULYxRgZVYCHMv9F4OA7qxT2NPPpvGQ/sTDH2yznKh7E2AcErfcNsaIoN1izzbJiaY63x4QjUFdBSvDCvugPpu5xDny0jzEeuUQbcP1aGT9V90uixngTRLYNEIIZ6yOF1H8tm7rj2JxiefsVy53zGVy3ag5uuPsdufYOzYxLRxngKe7nhx3VAq54pmz/DK9/Q3aDam2Yt3hNXB4HuU87jKNd/CKZn77Qdn5QkXPfqSkhk7hGOXXB+7v09KbBbqdvxGqa0AqfK/atIrL2WXdAgXAJ43Wtwe/aIoacXezeGPMlhDOHDbSfHnaXsL2QzbT82GRwZuezdwcoWzx5pnOnGMUdHuiY7lhdyWzWiHnucLZQxYStMJbtcydHaQ6vtMbe0AcDbxG+QG14AL94xry4297xpy9Cpf1OoxZ740gHDfrK+gtsy0xabwJmfgtCeii79B6aj0SJeLbd7AAAAAElFTkSuQmCC);
   }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> e91ba32ab3eff57e67522236bc9ef6997d91c97e
